@@ -15,7 +15,7 @@ export default function Schedules() {
       <Header />
       <div className={styles.content}>
         <Title text="Horários" icon="schedules"/>
-          <table className={styles.table}>
+          <table className={`${styles.table} animate-up delay-2`}>
             <thead>
               <tr>
                 <th>Dia</th>
