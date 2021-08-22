@@ -1,8 +1,8 @@
 export const weekdays = [
-  "wednesday",
   "sunday",
   "monday",
   "tuesday",
+  "wednesday",
   "thursday",
   "friday",
   "saturday"
