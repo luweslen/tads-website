@@ -15,7 +15,7 @@
         </div>
       </div>
       <nav class="menu" :class="{isActive}" @click="isActive = !isActive">
-        <NuxtLink to="/" >Home</NuxtLink>
+        <NuxtLink to="/">Início</NuxtLink>
         <NuxtLink to="/schedules">Horários</NuxtLink>
       </nav>
     </div>
@@ -57,7 +57,7 @@ header {
   .container {
     height: 100%;
     width: 100%;
-    max-width: 960px;
+    max-width: 1280px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -111,7 +111,7 @@ header {
     }
   }
 
-  a {
+  > a {
     width: 100%;
     height: 100%;
     padding: 0.8rem;

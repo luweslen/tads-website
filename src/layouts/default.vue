@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="default-layout">
     <Header />
-    <Nuxt />
+    <main>
+      <Nuxt />
+    </main>
     <Footer />
   </div>
 </template>
@@ -10,6 +12,18 @@
 export default {}
 </script>
 
-<style>
+<style lang="scss" scoped>
+.default-layout {
+  width: 100%;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  main {
+    width: 100%;
+    max-width: 1280px;
+  }
+}
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <div  class="schedules-page">
+  <div class="schedules-page">
     <div
       v-for="(semester, semesterKey) in Semesters"
       :key="semesterKey"
       class="semester"
     >
       <header>
-        <fa-icon
+        <font-awesome-icon
           icon="calendar-alt"
           size="2x"
         />
@@ -66,7 +66,9 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .schedules-page {
-  margin: 1.5rem;
+  width: 100%;
+
+  margin: 2rem 0;
 
   display: flex;
   flex-direction: column;
@@ -105,6 +107,11 @@ export default defineComponent({
         display: flex;
         flex-wrap: wrap;
         gap: 16px;
+
+        @media (max-width: 768px) {
+          width: 100%;
+          flex-direction: column;
+        }
 
       }
     }

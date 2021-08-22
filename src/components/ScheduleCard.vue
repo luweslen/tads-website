@@ -65,6 +65,10 @@ export default defineComponent({
 
   border-radius: 8px;
 
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+
   & > header {
     display: flex;
     flex-direction: column;
