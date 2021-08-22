@@ -66,13 +66,15 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .schedules-page {
-  width: 100%;
-
   margin: 2rem 0;
 
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  @media (max-width: 768px) {
+    margin: 2rem;
+  }
 
   .semester {
     display: flex;

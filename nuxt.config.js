@@ -1,9 +1,10 @@
 export default {
   target: 'static',
   srcDir: 'src/',
+  outDir: '/dist',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'landing-page',
+    title: 'TADS 2020',
     htmlAttrs: {
       lang: 'en'
     },
@@ -64,7 +65,7 @@ export default {
     icons: {
       solid: [
         'faCalendarAlt',
-        'faChevronDown',
+        'faChevronRight',
       ]
     }
   },

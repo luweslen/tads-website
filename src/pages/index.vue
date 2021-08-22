@@ -13,7 +13,7 @@
         </p>
         <NuxtLink to="/schedules">
           Horários das aulas
-          <font-awesome-icon icon="chevron-down" />
+          <font-awesome-icon icon="chevron-right" />
         </NuxtLink>
       </div>
       <img src="../assets/images/programming.svg" alt="Programming Image">
@@ -22,17 +22,11 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, ref, Ref } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   layout: 'default',
-  setup () {
-    const message: Ref = ref('Está é a página inicial')
-
-    return {
-      message
-    }
-  }
+  setup () {}
 })
 </script>
 
@@ -56,7 +50,7 @@ export default defineComponent({
 
     gap: 2rem;
 
-    padding: 4rem;
+    padding: 2rem;
 
     .content {
       max-width: 480px;

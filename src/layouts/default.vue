@@ -14,7 +14,7 @@ export default {}
 
 <style lang="scss" scoped>
 .default-layout {
-  width: 100%;
+  width: 100vw;
 
   display: flex;
   flex-direction: column;
