@@ -15,7 +15,7 @@
       <div class="subject">
         <span class="body-bold">
           <i class="bx bx-book"></i>
-          Displina
+          Disciplina
         </span>
         <span class="body-lead">{{subjectName}}</span>
       </div>
