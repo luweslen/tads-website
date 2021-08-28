@@ -4,3 +4,60 @@ $color-black: #121214;
 $color-dark-gray: #202024;
 $color-gray: #c4c4c4;
 $color-white: #fafafa;
+
+// COLORS
+
+// GREEN
+$green-10:#025A29;
+$green-9: #027837;
+$green-8: #03873E;
+$green-7: #039645;
+$green-6: #04B453;
+$green-5: #04D361;
+$green-5-30: #04d3614b;
+$green-5-50: #04d36186;
+$green-4: #05E76A;
+$green-3: #45FB97;
+$green-2: #97FDC5;
+$green-1: #D6FEE8;
+
+// BLUE
+$blue-10:#226799;
+$blue-9: #2573AA;
+$blue-8: #297EBB;
+$blue-7: #2D8ACC;
+$blue-6: #3A94D4;
+$blue-5: #4D9DD8;
+$blue-5-50: #4d9ed886;
+$blue-4: #58A4DA;
+$blue-3: #8BC0E6;
+$blue-2: #BFDCF1;
+$blue-1: #F2F8FC;
+
+// NEUTRAL
+$neutral-10:#121214;
+$neutral-9: #212125;
+$neutral-8: #414148;
+$neutral-7: #414148;
+$neutral-6: #72727D;
+$neutral-5: #82828E;
+$neutral-5-30: #82828e42;
+$neutral-4: #B8B8BF;
+$neutral-3: #CACACF;
+$neutral-2: #EDEDEF;
+$neutral-1: #FFFFFF;
+
+// GRADIENT
+$gradient-green: linear-gradient(87.76deg, $green-7 1.89%, $green-5 98.11%);
+$gradient-blue: linear-gradient(87.76deg, $blue-7 1.89%, $blue-5 98.11%);
+$gradient-aqua: linear-gradient(87.4deg, $blue-5 0%, $green-5 100%);
+$gradient-aqua-50: linear-gradient(87.4deg, $blue-5-50 0%, $green-5-50 100%);
+$gradient-sunburst: linear-gradient(87.4deg, #D1493E 0%, #F7E04B 100%);
+$gradient-neutral: linear-gradient(87.4deg, $neutral-8 0%, $neutral-6 100%);
+
+// MAIN COLORS
+$color-primary: #04D361;
+$color-secondary: #4D9DD8;
+$color-header: $neutral-8;
+$color-background: $neutral-9;
+$color-title: #FFFFFF;

@@ -5,21 +5,31 @@
       isClassToday: currentWeekday === weekdayKey
     }"
   >
+    <div class="position">{{position}}</div>
     <header>
-      <span>
-        {{startTime}} até {{endTime}}
+      <span class="body-bold">
+        {{startTime}} - {{endTime}}
       </span>
     </header>
     <main>
-      <span>
-        <strong>Displina:</strong> {{name}}
-      </span>
-      <span>
-        <strong>Docente:</strong> {{professor}}
-      </span>
+      <div class="subject">
+        <span class="body-bold">
+          <i class="bx bx-book"></i>
+          Displina
+        </span>
+        <span class="body-lead">{{subjectName}}</span>
+      </div>
+      <div class="professor">
+        <span class="body-bold">
+          <i class="bx bx-user"></i>
+          Docente
+        </span>
+        <span class="body-lead">{{professor}}</span>
+      </div>
     </main>
     <footer>
-      <a :href="link" target="_blank">Acessar aula</a>
+      <!-- <Button :to="link" aqua icon-start="bx bx-info-square"></Button> -->
+      <Button :to="link" secondary icon-start="bx bxl-google">Acessar a aula</Button>
     </footer>
   </div>
 </template>
@@ -35,9 +45,10 @@ export default defineComponent({
     weekday: { type: String, required: true },
     startTime: { type: String, required: true },
     endTime: { type: String, required: true },
-    name: { type: String, required: true },
+    subjectName: { type: String, required: true },
     professor: { type: String, required: true },
     link: { type: String, required: true },
+    position: { type: String, required: true },
   },
   setup () {
     const currentWeekdayNumber = new Date().getDay();
@@ -52,80 +63,92 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .schedule-card {
+  position: relative;
   width: 100%;
-  max-width: 550px;
+  min-width: 320px;
+  max-width: 350px;
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+
   gap: 16px;
 
-  background: $color-dark-gray;
-
-  padding: 16px;
+  background: $neutral-8;
 
   border-radius: 8px;
+
+  padding-bottom: 1rem;
 
   @media (max-width: 768px) {
     max-width: 100%;
   }
 
-  & > header {
+  .position{
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: -24px;
+    right: -24px;
+
+    background: $blue-5;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+      top: -20px;
+      right: -20px;
+    }
+  }
+
+  header {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2px;
 
-    border-bottom: 2px solid $color-green;
+    background: $gradient-green;
 
     padding: 8px;
   }
 
-  & > header h2 {
-    width: 100%;
-    font-size: 1.4rem;
-    text-align: center;
-  }
-
-  & > header span {
-    font-size: 1.2rem;
-  }
-
-  & > main {
+  main {
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    gap: 4px;
+    gap: 16px;
+
+    padding: 0 1rem;
+
+    .subject, .professor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      span {
+        text-align: center;
+        &:first-child{
+          color: $green-5;
+        }
+      }
+    }
   }
 
-  & > main span {
-    font-size: 1.2rem;
-  }
 
-  & > footer {
-    display: flex;
-  }
-
-  & > footer a {
+  footer {
     width: 100%;
-    text-decoration: none;
-
-    background: $color-green;
-    color: $color-black;
-
-    font-weight: 900;
-    font-size: 0.8rem;
-
-    padding: 0.6rem;
-
-    text-align: center;
-
-    border-radius: 8px;
-  }
-
-  & > footer a:hover {
-    filter: brightness(0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
 
   &.isClassToday {
@@ -141,12 +164,7 @@ export default defineComponent({
     z-index: -1;
     width: calc(100% + 2px * 2);
     height: calc(100% + 2px * 2);
-    background: linear-gradient(
-      60deg,
-      $color-green,
-      $color-dark-gray,
-      $color-green
-    );
+    background: $gradient-aqua;
     background-size: 300% 300%;
     background-position: 0 50%;
     border-radius: calc(2 * 2px);

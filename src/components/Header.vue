@@ -6,17 +6,20 @@
           <img src="~/assets/images/logo.svg" alt="Logo">
         </NuxtLink>
 
-        <div
-          class="toggleMenu"
-          :class="{isActive}"
+        <i
+          :class="!isActive ? `bx bx-menu bx-lg` : `bx bx-x bx-lg`"
           @click="isActive = !isActive"
-        >
-          <div class="toggleMenuItem"></div>
-        </div>
+        ></i>
       </div>
       <nav class="menu" :class="{isActive}" @click="isActive = !isActive">
-        <NuxtLink to="/">Início</NuxtLink>
-        <NuxtLink to="/schedules">Horários</NuxtLink>
+        <NuxtLink to="/">
+          <i class='bx bxs-home bx-sm'></i>
+          <span class="body-bold">início</span>
+        </NuxtLink>
+        <NuxtLink to="/schedules">
+          <i class='bx bx-library bx-sm'></i>
+          <span class="body-bold">Horários</span>
+        </NuxtLink>
       </nav>
     </div>
   </header>
@@ -39,15 +42,20 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 header {
-  height: 80px;
-  width: 100%;
-  background: $color-dark-gray;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
+  top: 0;
 
-  @media (max-width: 768px) {
-    padding: 0 16px;
+  width: 100%;
+
+  background: $color-header;
+
+  padding: 0.5rem 1rem;
+
+  z-index: 100;
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: center;
   }
   &.isActive {
     @media (max-width: 768px) {
@@ -55,12 +63,13 @@ header {
     }
   }
   .container {
-    height: 100%;
     width: 100%;
     max-width: 1280px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 64px;
 
     &.isActive {
       @media (max-width: 768px) {
@@ -70,21 +79,25 @@ header {
     }
 
     .content {
-      height: 100%;
       width: 100%;
       max-width: 960px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      &.isActive {
-        @media (max-width: 768px) {
-          height: 80px;
-        }
-      }
+      color: $green-5;
 
       img {
         cursor: pointer;
+        max-height: 48px;
+      }
+
+      .bx {
+        transition: all 0.3s;
+        @media (min-width: 768px) {
+          display: none;
+        }
       }
     }
   }
@@ -96,6 +109,8 @@ header {
   align-items: center;
   gap: 16px;
 
+  transition: all 0.3s ease-in-out;
+
   @media (max-width: 768px) {
     display: none;
   }
@@ -103,11 +118,9 @@ header {
   &.isActive {
     @media (max-width: 768px) {
       width: 100%;
-      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
     }
   }
 
@@ -121,10 +134,14 @@ header {
     font-size: 1.5rem;
     font-weight: 900;
 
+    background: $neutral-5-30;
     color: $color-white;
 
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+
+    transition: all 0.3s;
 
     @media (max-width: 768px) {
       height: auto;
@@ -133,80 +150,8 @@ header {
     &.isActive,
     &.nuxt-link-exact-active,
     &:hover {
-      background: $color-green;
-      color: $color-black;
-    }
-  }
-}
-
-.toggleMenu {
-  display: none;
-
-  position: relative;
-  width: 48px;
-  height: 48px;
-
-  background: transparent;
-  border: none;
-
-  cursor: pointer;
-
-  transition: background 0.2s;
-
-  @media (max-width: 768px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &:hover {
-    background: $color-black;
-  }
-
-  .toggleMenuItem {
-    width: 28px;
-    height: 2px;
-
-    background: $color-green;
-
-    transition: all 0.5s ease-in-out;
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-
-      width: 28px;
-      height: 2px;
-
-      background: $color-green;
-
-      transition: all 0.5s ease-in-out;
-    }
-    &::before {
-      transform: translateY(-8px);
-    }
-
-    &::after {
-      transform: translateY(8px);
-    }
-  }
-
-  &.isActive {
-    .toggleMenuItem {
-      transform: translateX(-50px);
-      background: transparent;
-      box-shadow: none;
-    }
-  }
-  &.isActive {
-    .toggleMenuItem::before {
-      transform: rotate(45deg) translate(35px, -35px);
-    }
-  }
-  &.isActive {
-    .toggleMenuItem::after {
-      transform: rotate(-45deg) translate(35px, 35px);
+      background: $green-5-30;
+      color: $green-5;
     }
   }
 }

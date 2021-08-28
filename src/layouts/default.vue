@@ -24,6 +24,8 @@ export default {}
   main {
     width: 100%;
     max-width: 1280px;
+
+    margin-top: 72px;
   }
 }
 </style>

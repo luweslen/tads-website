@@ -5,5 +5,5 @@ export const weekdays = [
   "wednesday",
   "thursday",
   "friday",
-  "saturday"
+  "saturday",
 ]

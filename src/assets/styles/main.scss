@@ -9,6 +9,65 @@ body {
 
   font-family: "Inter", sans-serif;
 
-  background-color: $color-black;
+  background-color: $color-background;
   color: $color-white;
+}
+
+h1 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 53.25px;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: auto;
+}
+
+h3 {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: auto;
+}
+
+h4 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: auto;
+}
+
+h5 {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: auto;
+}
+
+.body-bold {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: auto;
+}
+
+.body-bold {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: auto;
+}
+
+.body-lead {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.body-p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: auto;
+}
+
+.body-tiny {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: auto;
 }
