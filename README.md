@@ -1,12 +1,12 @@
 <div align="center">
-  <img src="public/logo.svg" >
+  <img src="src/assets/images/logo.svg" >
 </div>
 
 <br/>
 
 <div align="center">
-  <a href="https://tads.weslen.dev">
-    <img src="https://img.shields.io/badge/Acessar-tads.weslen.dev-5965e0?style=for-the-badge" alt="Versão" />
+  <a href="https://tads.dev">
+    <img src="https://img.shields.io/badge/Acessar-tads.dev-04D361?style=for-the-badge" alt="Versão" />
   </a>
 </div>
 
@@ -41,12 +41,32 @@ https://www.figma.com/file/2fjpFnIXBC7CnIyFxuQSyA/tads-website?node-id=0%3A1
 <table>
   <tr>
     <td>
-      <img src="https://img.shields.io/badge/ReactJS-5965e0?style=for-the-badge" alt="React" />
+      <img src="https://img.shields.io/badge/VueJS-04D361?style=for-the-badge" alt="VueJS" />
     </td>
   </tr>
   <tr>
     <td>
-      <img src="https://img.shields.io/badge/NextJS-5965e0?style=for-the-badge" alt="Next" />
+      <img src="https://img.shields.io/badge/NuxtJS-04D361?style=for-the-badge" alt="NuxtJS" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://img.shields.io/badge/HTML-04D361?style=for-the-badge" alt="HTML" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://img.shields.io/badge/CSS-04D361?style=for-the-badge" alt="CSS" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://img.shields.io/badge/JavaScript-04D361?style=for-the-badge" alt="JavaScript" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://img.shields.io/badge/Figma-04D361?style=for-the-badge" alt="Figma" />
     </td>
   </tr>
 </table>
