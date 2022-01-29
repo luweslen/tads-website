@@ -17,7 +17,7 @@
           <span class="body-bold">início</span>
         </NuxtLink>
         <NuxtLink to="/schedules">
-          <i class='bx bx-library bx-sm'></i>
+          <i class='bx bx-time bx-sm'></i>
           <span class="body-bold">Horários</span>
         </NuxtLink>
       </nav>
@@ -42,12 +42,9 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 header {
-  position: fixed;
-  top: 0;
-
   width: 100%;
 
-  background: $color-header;
+  background: $color-background;
 
   padding: 0.5rem 1rem;
 
@@ -127,7 +124,7 @@ header {
   > a {
     width: 100%;
     height: 100%;
-    padding: 0.8rem;
+    padding: 0.5rem 1rem;
 
     text-decoration: none;
 

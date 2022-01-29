@@ -18,6 +18,7 @@
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
+  name: 'GlobalButton',
   layout: 'default',
   props: {
     loading: { type: Boolean, default: false },

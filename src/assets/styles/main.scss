@@ -9,7 +9,7 @@ body {
 
   font-family: "Inter", sans-serif;
 
-  background-color: $color-background;
+  background-color: $neutral-8;
   color: $color-white;
 }
 
@@ -70,4 +70,28 @@ h5 {
   font-size: 14px;
   font-weight: 400;
   line-height: auto;
+}
+
+@keyframes pulse-bg-gray {
+  0% { background-color: $neutral-6; }
+  50% { background-color: $neutral-5; }
+  100% { background-color: $neutral-6; }
+}
+
+@keyframes pulse-bg-gray-ligth {
+  0% { background-color: $neutral-3; }
+  50% { background-color: $neutral-1; }
+  100% { background-color: $neutral-3; }
+}
+
+@keyframes pulse-bg-green {
+  0% { background-color: $green-7; }
+  50% { background-color: $green-5; }
+  100% { background-color: $green-7; }
+}
+
+@keyframes pulse-bg-blue {
+  0% { background-color: $blue-7; }
+  50% { background-color: $blue-5; }
+  100% { background-color: $blue-7; }
 }

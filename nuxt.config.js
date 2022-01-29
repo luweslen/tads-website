@@ -5,6 +5,9 @@ export default {
   target: 'static',
   srcDir: 'src/',
   outDir: '/dist',
+  server: {
+    port: 4000,
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'TADS 2020',
@@ -130,9 +133,10 @@ export default {
     '@nuxtjs/style-resources',
   ],
 
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:3000'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -140,14 +144,5 @@ export default {
 
   styleResources: {
     scss: ['./assets/styles/*.scss']
-  },
-
-  fontawesome: {
-    icons: {
-      solid: [
-        'faCalendarAlt',
-        'faChevronRight',
-      ]
-    }
   },
 }

@@ -17,9 +17,6 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-regular-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@nuxt/types": "^2.15.7",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/composition-api": "^0.27.0",

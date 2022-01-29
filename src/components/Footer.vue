@@ -1,16 +1,6 @@
 <template>
   <footer>
     <img src="~/assets/images/logo.svg" alt="TADS">
-    <div class="author-info">
-      <span class="body-p">
-        Feito por <b>Luciano Weslen</b>
-      </span>
-      <div class="buttons">
-        <Button to="https://www.instagram.com/weslen.dev/" primary icon-start="bx bxl-instagram bx-sm" />
-        <Button to="https://www.linkedin.com/in/lweslen/" primary icon-start="bx bxl-linkedin bx-sm" />
-        <Button to="https://github.com/lweslen" primary icon-start="bx bxl-github bx-sm" />
-      </div>
-    </div>
     <Button to="https://github.com/lweslen/tads-landing-page" dark icon-start="bx bxl-github bx-sm">Repositório do projeto</Button>
   </footer>
 </template>
@@ -28,7 +18,7 @@ export default defineComponent({
 footer {
   width: 100%;
 
-  background: $color-header;
+  background: $color-background;
 
   margin-top: 2rem;
 

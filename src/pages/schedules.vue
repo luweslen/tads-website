@@ -1,67 +1,89 @@
 <template>
   <div class="schedules-page">
-    <div
-      v-for="(semester, semesterKey) in Semesters"
-      :key="semesterKey"
-      class="semester"
-    >
-      <header>
-        <div class="title">
-          <h1>
-            {{semestersTranslate[semesterKey]}}
-          </h1>
-          <h5>Estes são os horários do 3ª semestre.</h5>
-        </div>
-        <img src="~/assets/images/schedule-header.svg" alt="">
-      </header>
-      <div
-        v-for="(weekday, weekdayKey) in semester"
-        :key="weekdayKey"
-        class="weekday"
-      >
-        <h4>{{weekdayTranslate[weekdayKey]}}</h4>
-        <div class="cards">
-          <div
-            v-if="weekday.length <= 0"
-            class="empty-weekday"
-          >
-            <ScheduleCardEmpty
-              message="Não tem aula neste dia"
-            />
-          </div>
-
-          <ScheduleCard
-            v-for="(schedule, index) in weekday"
-            :key="schedule.name"
-
-            :weekday-key="weekdayKey"
-            :weekday="weekdayKey"
-            :start-time="schedule.startTime"
-            :end-time="schedule.endTime"
-            :subject-name="schedule.name"
-            :professor="schedule.professor"
-            :link="schedule.link"
-            :position="index + 1"
-          />
-        </div>
-      </div>
-    </div>
+    <schedules-header />
+    <section-selects
+      :classes="classes"
+      :start-params="startParams"
+      @select-params="handleSelectParams"
+    />
+    <section-weekdays
+      :weekdays="schedules"
+      :is-empty="isEmpty()"
+      :loading="loading"
+    />
   </div>
 </template>
 
 <script lang='ts'>
-import { defineComponent } from '@nuxtjs/composition-api';
-import Semesters from '../db/schedules';
-import { semestersTranslate, weekdayTranslate } from '../utils/Translate';
+import { defineComponent, useContext, computed, ref, watch, onMounted } from '@nuxtjs/composition-api';
+
+import { ClassRawType, SchedulesByWeekday } from '../@types';
+import SectionWeekdays from '../components/schedules/sections/weekdays/index.vue';
+import SectionSelects from '../components/schedules/sections/selects/index.vue';
+import SchedulesHeader from '../components/schedules/Header.vue';
+
+type ParamsType = {
+  classId?: String
+}
 
 export default defineComponent({
+  name: 'SchedulesPage',
+  components: {
+    SectionWeekdays,
+    SectionSelects,
+    SchedulesHeader
+  },
   layout: 'default',
   setup () {
+    const { store, route } = useContext();
+
+    const schedules = computed<SchedulesByWeekday>(() => store.getters['schedules/getSchedules'])
+    const classes = computed<ClassRawType[]>(() => store.getters['classes/getClasses'])
+    const loading = ref(true)
+    const startParams = ref({})
+
+    store.dispatch('classes/handleGetClasses')
+
+    onMounted(() => {
+      const queryParams = route.value.query
+
+      startParams.value = {
+        type: queryParams.type || undefined,
+        slug: queryParams.slug || undefined,
+      }
+    })
+
+    watch(schedules, () => {
+      if(isEmpty) {
+        loading.value = false
+      }
+    })
+
+    function handleSelectParams(params: ParamsType){
+      store.dispatch('schedules/handleGetSchedules', params)
+    }
+
+    function isEmpty(){
+      let state = false
+
+      if(!schedules){
+        state = true
+      } else {
+        Object.keys(schedules).forEach((item) => {
+          if(schedules[item].length <= 0) state = true
+        })
+      }
+
+      return state
+    }
 
     return {
-      Semesters,
-      semestersTranslate,
-      weekdayTranslate
+      startParams,
+      classes,
+      schedules,
+      loading,
+      isEmpty,
+      handleSelectParams
     }
   }
 })
@@ -71,11 +93,7 @@ export default defineComponent({
 .schedules-page {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-
-  // @media (max-width: 768px) {
-  //   margin: 1rem;
-  // }
+  gap: 16px;
 
   .semester {
     width: 100%;
