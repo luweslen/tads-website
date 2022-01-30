@@ -20,20 +20,19 @@
 
 <script lang='ts'>
 import { defineComponent, PropType, reactive, watch } from '@nuxtjs/composition-api';
-import { ClassRawType } from '~/src/@types';
+import { ClassRawType } from '../../../../@types';
 
 type ParamsType = {
-  slug?: String
-  type?: String
+  slug: String
+  type: String
 }
 
 export default defineComponent({
   name: 'SectionSelects',
   components: {},
-  layout: 'default',
   props: {
     classes: { type: Array as PropType<ClassRawType[]> },
-    startParams: { type: Object as PropType<ParamsType> },
+    startParams: { type: Object as PropType<ParamsType>, require: true },
   },
   setup (props, { emit }) {
     const params = reactive<ParamsType>({

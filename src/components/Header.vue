@@ -3,7 +3,7 @@
     <div class="container" :class="{isActive}">
       <div class="content" :class="{isActive}">
         <NuxtLink to="/">
-          <img src="~/assets/images/logo.svg" alt="Logo">
+          <img src="../assets/images/logo.svg" alt="Logo">
         </NuxtLink>
 
         <i
@@ -29,7 +29,6 @@
 import { defineComponent, ref, Ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  layout: 'default',
   setup () {
     const isActive: Ref = ref(false);
 

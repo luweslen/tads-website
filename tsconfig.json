@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
     "lib": [
-      "ESNext",
+      "esnext",
       "ESNext.AsyncIterable",
-      "DOM"
+      "dom"
     ],
     "esModuleInterop": true,
-    "allowJs": true,
+    "experimentalDecorators": true,
     "sourceMap": true,
     "noEmit": true,
-    "experimentalDecorators": true,
     "baseUrl": ".",
+    "importsNotUsedAsValues": "preserve",
     "paths": {
       "~/*": [
         "./*"

@@ -1,7 +1,9 @@
+import type { NuxtConfig } from '@nuxt/types'
+
 const description = "Website para auxiliar os alunos da turma 2020 do curso de Tecnólogo em Analise em Desenvolvimento de Sistemas do Instituto Federal do Paraná - campus Londrina.";
 const title = "TADS";
 
-export default {
+const config: NuxtConfig = {
   target: 'static',
   srcDir: 'src/',
   outDir: '/dist',
@@ -146,3 +148,5 @@ export default {
     scss: ['./assets/styles/*.scss']
   },
 }
+
+export default config

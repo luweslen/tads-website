@@ -17,7 +17,6 @@ import CardLoader from './card/loader.vue';
 export default defineComponent({
   name: 'WeekdaysLoader',
   components: { CardLoader },
-  layout: 'default',
   props: {},
   setup () {
     return {

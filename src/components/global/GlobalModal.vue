@@ -1,49 +1,16 @@
 <template>
-  <component
-    :is="to ? 'a' : 'button'"
-    :href="to"
-    target="_blank"
-    class="tiny"
-    :class="classes"
-    v-bind="props"
-  >
-    <i v-if="loading" class='bx bx-loader bx-spin'></i>
-    <i v-else-if="iconStart" :class='iconStart'></i>
-    <slot />
-    <i v-if="iconEnd" :class='iconEnd'></i>
-  </component>
+  <div></div>
 </template>
 
 <script lang='ts'>
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  name: 'GlobalButton',
-  layout: 'default',
+  name: 'GlobalModal',
   props: {
-    loading: { type: Boolean, default: false },
-    primary: { type: Boolean, default: false },
-    secondary: { type: Boolean, default: false },
-    dark: { type: Boolean, default: false },
-    light: { type: Boolean, default: false },
-    aqua: { type: Boolean, default: false },
-    block: { type: Boolean, default: false },
-    iconStart: { type: String, default: "" },
-    iconEnd: { type: String, default: "" },
-    to: { type: String, default: "" },
   },
-  setup (props) {
+  setup () {
     return {
-      classes: {
-        primary: props.primary,
-        secondary: props.secondary,
-        dark: props.dark,
-        light: props.light,
-        aqua: props.aqua,
-        block: props.block,
-        loading: props.loading,
-      },
-      props
     }
   }
 })

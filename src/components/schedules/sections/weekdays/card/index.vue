@@ -43,12 +43,11 @@
 <script lang='ts'>
 import { defineComponent, PropType } from '@nuxtjs/composition-api';
 import GlobalButton from '../../../../global/GlobalModal.vue';
-import { ClassRawType, ProfessorType, SubjectType } from '~/src/@types';
+import { ClassRawType, ProfessorType, SubjectType } from '../../../../../@types';
 
 export default defineComponent({
   name: 'ScheduleCard',
   components: { GlobalButton },
-  layout: 'default',
   props: {
     professor: {
       type: Object as PropType<ProfessorType>,

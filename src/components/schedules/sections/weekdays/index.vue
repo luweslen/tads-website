@@ -22,14 +22,13 @@
 <script lang='ts'>
 import { defineComponent, PropType } from '@nuxtjs/composition-api';
 import { weekdayTranslate } from '../../../../utils/Translate';
+import { SchedulesByWeekday } from '../../../../@types';
 import WeekdaysLoader from './loader.vue'
 import Card from './card/index.vue';
-import { SchedulesByWeekday } from '~/src/@types';
 
 export default defineComponent({
   name: 'SectionWeekdays',
   components: { WeekdaysLoader, Card },
-  layout: 'default',
   props: {
     weekdays: {
       type: Object as PropType<SchedulesByWeekday>,

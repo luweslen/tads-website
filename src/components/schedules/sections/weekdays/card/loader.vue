@@ -23,7 +23,6 @@ import { defineComponent } from '@nuxtjs/composition-api';
 export default defineComponent({
   name: 'CardLoader',
   components: {},
-  layout: 'default',
   props: {},
   setup () {
     return {
