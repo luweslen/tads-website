@@ -67,6 +67,11 @@ export default defineComponent({
 <style lang="scss" scoped>
 .section-selects {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
+
+  @media (max-width: 768px) {
+    margin: 0 16px;
+  }
 }
 </style>

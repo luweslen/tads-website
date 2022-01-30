@@ -1,7 +1,7 @@
 <template>
-  <header class="schedules-header">
-    <i class='bx bx-time bx-md'></i>
-    <h1>Horários</h1>
+  <header class="schedule-header">
+    <i class='bx bxs-label bx-md'></i>
+    <h1>Detalhes do horário</h1>
   </header>
 </template>
 
@@ -9,23 +9,25 @@
 import { defineComponent } from '@nuxtjs/composition-api';
 
 export default defineComponent({
-  name: 'SchedulesHeader',
+  name: 'ScheduleHeader',
   components: {},
   layout: 'default',
   props: {},
   setup () {
-    return {}
+    return {
+
+    }
   }
 })
 </script>
 
 <style lang="scss" scoped>
-.schedules-header {
+.schedule-header {
   display: flex;
   align-items: center;
   gap: 8px;
 
-  height: 180px;
+  min-height: 180px;
 
   padding: 1rem;
 
@@ -34,6 +36,7 @@ export default defineComponent({
   @media (max-width: 768px) {
     justify-content: center;
     flex-direction: column;
+    text-align: center;
   }
 
   i {

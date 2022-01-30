@@ -10,12 +10,13 @@
       :weekdays="schedules"
       :is-empty="isEmpty()"
       :loading="loading"
+      @know-more="handleToSchedulePage"
     />
   </div>
 </template>
 
 <script lang='ts'>
-import { defineComponent, useContext, computed, ref, watch, onMounted } from '@nuxtjs/composition-api';
+import { defineComponent, useContext, computed, ref, watch, onMounted, useRouter } from '@nuxtjs/composition-api';
 
 import { ClassRawType, SchedulesByWeekday } from '../@types';
 import SectionWeekdays from '../components/schedules/sections/weekdays/index.vue';
@@ -35,7 +36,8 @@ export default defineComponent({
   },
   layout: 'default',
   setup () {
-    const { store, route } = useContext();
+    const { store, route  } = useContext();
+    const router = useRouter();
 
     const schedules = computed<SchedulesByWeekday>(() => store.getters['schedules/getSchedules'])
     const classes = computed<ClassRawType[]>(() => store.getters['classes/getClasses'])
@@ -77,13 +79,18 @@ export default defineComponent({
       return state
     }
 
+    function handleToSchedulePage(id: String){
+      router.push(`/schedule/${id}`)
+    }
+
     return {
       startParams,
       classes,
       schedules,
       loading,
       isEmpty,
-      handleSelectParams
+      handleSelectParams,
+      handleToSchedulePage
     }
   }
 })
@@ -94,70 +101,5 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   gap: 16px;
-
-  .semester {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    > header {
-      position: relative;
-
-      width: 100%;
-
-      background: $gradient-aqua-50;
-      color: $color-white;
-
-      padding: 1rem;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      @media (max-width: 768px) {
-        height: 242px;
-        align-items: center;
-        justify-content: center;
-      }
-
-      img {
-        @media (max-width: 768px) {
-          position: absolute;
-          opacity: 0.5;
-        }
-      }
-
-      h1, h5 {
-        @media (max-width: 768px) {
-          text-align: center;
-        }
-      }
-    }
-
-    .weekday {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-
-
-      @media (max-width: 768px) {
-        padding: 0 2rem;
-        align-items: center;
-      }
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(3, 350px);
-
-        gap: 32px;
-
-        @media (max-width: 768px) {
-          grid-template-columns: repeat(1, 320px);
-          flex-direction: column;
-        }
-
-      }
-    }
-  }
 }
 </style>

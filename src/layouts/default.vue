@@ -1,15 +1,16 @@
 <template>
   <div class="default-layout">
-    <Header />
+    <default-header />
     <main>
       <Nuxt />
     </main>
-    <Footer />
+    <default-footer />
   </div>
 </template>
 
-<script>
-export default {}
+<script setup lang="ts">
+import DefaultHeader from "../components/layouts/default/Header.vue"
+import DefaultFooter from "../components/layouts/default/Footer.vue"
 </script>
 
 <style lang="scss" scoped>
@@ -24,6 +25,7 @@ export default {}
   main {
     width: 100%;
     max-width: 1280px;
+    margin-bottom: 32px;
   }
 }
 </style>

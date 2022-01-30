@@ -5,6 +5,7 @@
       <div class="cards">
         <card
           v-for="schedule in schedules"
+          :id="schedule.id"
           :key="`schedule_${schedule.id}`"
           :professor="schedule.subject.professor"
           :class-data="schedule.subject.class"
@@ -12,6 +13,7 @@
           :start-time="schedule.startTime"
           :end-time="schedule.endTime"
           :type="schedule.type"
+          @know-more="(id) => $emit('know-more', id)"
         />
       </div>
     </div>
@@ -56,6 +58,10 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  @media (max-width: 768px) {
+    margin: 16px;
+  }
 
   .weekday {
     display: flex;

@@ -24,6 +24,7 @@
         dark
         icon-start="bx bx-info-square"
         :block="type === 'ASYNCHRONOUS'"
+        @click="handleKnowMore"
       >
         {{type === 'ASYNCHRONOUS' ? 'Saber mais' : ''}}
       </global-button>
@@ -49,6 +50,10 @@ export default defineComponent({
   name: 'ScheduleCard',
   components: { GlobalButton },
   props: {
+    id: {
+      type: String,
+      require: true
+    },
     professor: {
       type: Object as PropType<ProfessorType>,
       require: true
@@ -74,9 +79,13 @@ export default defineComponent({
       require: true
     },
   },
-  setup () {
-    return {
+  setup (props, { emit }) {
+    function handleKnowMore(){
+      emit('know-more', props.id)
+    }
 
+    return {
+      handleKnowMore
     }
   }
 })

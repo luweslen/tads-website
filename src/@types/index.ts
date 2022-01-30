@@ -86,7 +86,7 @@ export type ScheduleRawType = {
 
 export type ScheduleType = ScheduleRawType & {
   class?: ClassRawType
-  subject?: SubjectRawType
+  subject?: SubjectType
 }
 
 export type SchedulesByWeekday = {

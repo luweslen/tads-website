@@ -1,11 +1,11 @@
 <template>
   <component
     :is="to ? 'a' : 'button'"
-    :href="to"
+    :href="to ? to : false"
     target="_blank"
     class="tiny"
     :class="classes"
-    v-bind="props"
+    @click="$emit('click')"
   >
     <i v-if="loading" class='bx bx-loader bx-spin'></i>
     <i v-else-if="iconStart" :class='iconStart'></i>
@@ -30,6 +30,7 @@ export default defineComponent({
     iconStart: { type: String, default: "" },
     iconEnd: { type: String, default: "" },
     to: { type: String, default: "" },
+    click: { type: Function }
   },
   setup (props) {
     return {
@@ -62,7 +63,7 @@ a, button {
 
   cursor: pointer;
 
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
 
   text-decoration: none;
 
@@ -72,6 +73,7 @@ a, button {
 
     &:hover:not(:disabled):not(.loading), &:disabled {
       background: $green-7;
+      color: $color-white;
     }
   }
   &.secondary {
@@ -80,6 +82,7 @@ a, button {
 
     &:hover:not(:disabled):not(.loading), &:disabled {
       background: $blue-7;
+      color: $color-white;
     }
   }
   &.dark {
@@ -88,6 +91,7 @@ a, button {
 
     &:hover:not(:disabled):not(.loading), &:disabled {
       background: $neutral-6;
+      color: $color-white;
     }
   }
   &.light {
@@ -96,6 +100,7 @@ a, button {
 
     &:hover:not(:disabled):not(.loading), &:disabled {
       background: $neutral-4;
+      color: $color-white;
     }
   }
   &.aqua {

@@ -3,7 +3,7 @@
     <div class="container" :class="{isActive}">
       <div class="content" :class="{isActive}">
         <NuxtLink to="/">
-          <img src="../assets/images/logo.svg" alt="Logo">
+          <img src="../../../assets/images/logo.svg" alt="Tads logo">
         </NuxtLink>
 
         <i
@@ -12,13 +12,9 @@
         ></i>
       </div>
       <nav class="menu" :class="{isActive}" @click="isActive = !isActive">
-        <NuxtLink to="/">
-          <i class='bx bxs-home bx-sm'></i>
-          <span class="body-bold">início</span>
-        </NuxtLink>
-        <NuxtLink to="/schedules">
-          <i class='bx bx-time bx-sm'></i>
-          <span class="body-bold">Horários</span>
+        <NuxtLink v-for="link in links" :key="`link_${link.key}`" :to="link.to">
+          <i :class='`bx ${link.icon} bx-sm`'></i>
+          <span class="body-bold">{{link.value}}</span>
         </NuxtLink>
       </nav>
     </div>
@@ -31,9 +27,14 @@ import { defineComponent, ref, Ref } from '@nuxtjs/composition-api'
 export default defineComponent({
   setup () {
     const isActive: Ref = ref(false);
+    const links = ref([
+      { key: 'home', value: 'Início', icon: 'bxs-home', to: '/' },
+      { key: 'schedules', value: 'Horários', icon: 'bx-time', to: '/schedules' },
+    ])
 
     return {
-      isActive
+      isActive,
+      links
     }
   }
 })
