@@ -42,7 +42,7 @@
 
 <script lang='ts'>
 import { defineComponent, PropType } from '@nuxtjs/composition-api';
-import GlobalButton from '../../../../global/GlobalModal.vue';
+import GlobalButton from '../../../../global/GlobalButton.vue';
 import { ClassRawType, ProfessorType, SubjectType } from '../../../../../@types';
 
 export default defineComponent({

@@ -1,13 +1,14 @@
 import type { GetterTree, ActionTree, MutationTree } from 'vuex'
+import { SchedulesByWeekday } from '../@types'
 
 export const namespace = 'schedules'
 
 export interface ScheduleState {
-  schedules: any[]
+  schedules: SchedulesByWeekday
 }
 
 export const state = (): ScheduleState => ({
-  schedules: []
+  schedules: {}
 })
 
 export const getters: GetterTree<ScheduleState, any> = {
@@ -15,7 +16,7 @@ export const getters: GetterTree<ScheduleState, any> = {
 }
 
 export const mutations: MutationTree<ScheduleState> = {
-  SET_SCHEDULES: (state, schedules: any[]) => { state.schedules = schedules }
+  SET_SCHEDULES: (state, schedules: SchedulesByWeekday) => { state.schedules = schedules }
 }
 
 

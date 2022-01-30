@@ -54,7 +54,7 @@ export default defineComponent({
     })
 
     watch(schedules, () => {
-      if(isEmpty()) {
+      if(!isEmpty()) {
         loading.value = false
       }
     })
