@@ -1,10 +1,10 @@
 <template>
   <div v-if="!isEmpty && !loading" class="section-weekdays">
-    <div v-for="(schedules, weekday) in weekdays" :key="weekday" class="weekday">
+    <div v-for="weekday in weekdaysAll" :key="weekday" class="weekday">
       <h2>{{weekdayTranslate[weekday.toLowerCase()]}}</h2>
       <div class="cards">
         <card
-          v-for="schedule in schedules"
+          v-for="schedule in weekdays[weekday]"
           :id="schedule.id"
           :key="`schedule_${schedule.id}`"
           :professor="schedule.subject.professor"
@@ -22,7 +22,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, PropType } from '@nuxtjs/composition-api';
+import { defineComponent, PropType, ref } from '@nuxtjs/composition-api';
 import { weekdayTranslate } from '../../../../utils/Translate';
 import { SchedulesByWeekday } from '../../../../@types';
 import WeekdaysLoader from './loader.vue'
@@ -46,8 +46,17 @@ export default defineComponent({
     }
   },
   setup () {
+    const weekdaysAll = ref([
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ])
+
     return {
-      weekdayTranslate
+      weekdayTranslate,
+      weekdaysAll
     }
   }
 })
